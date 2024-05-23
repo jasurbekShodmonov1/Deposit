@@ -2,7 +2,7 @@ import pickle
 import pandas as pd
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import User, Deposit
+from .models import Deposit
 
 # Load the fraud detection model
 with open('fraud_detection_model.pkl', 'rb') as file:
@@ -16,16 +16,9 @@ def index(request):
 def deposit(request):
     if request.method == 'POST':
         form_data = request.POST
-        username = form_data['username']
-        user = User.objects.filter(username=username).first()
-
-        if not user:
-            messages.error(request, 'User not found!')
-            return redirect('index')
 
         # Prepare input for the model
         input_data = {
-            'user_id': user.id,
             'job': form_data['job'],
             'marital': form_data['marital'],
             'education': form_data['education'],
@@ -54,7 +47,6 @@ def deposit(request):
             return redirect('index')
 
         new_deposit = Deposit(
-            user=user,
             job=form_data['job'],
             marital=form_data['marital'],
             education=form_data['education'],

@@ -1,11 +1,6 @@
 from django.db import models
 
-class User(models.Model):
-    username = models.CharField(max_length=150, unique=True)
-    password = models.CharField(max_length=150)
-
 class Deposit(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
     job = models.CharField(max_length=50)
     marital = models.CharField(max_length=50)
     education = models.CharField(max_length=50)
