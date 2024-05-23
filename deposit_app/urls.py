@@ -1,8 +1,9 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import index, deposit
+from .views import index, deposit, welcome
 
 urlpatterns = [
-    path(" ", index, name="index"),
+    path("", welcome, name="welcome"),
+    path("index", index, name="index"),
     path("deposit", deposit, name="deposit"),
 ]
