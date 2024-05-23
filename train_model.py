@@ -5,7 +5,7 @@ import pickle
 
 # Example dataset
 data = {
-    'user_id': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+
     'job': ['admin.', 'blue-collar', 'entrepreneur', 'housemaid', 'management', 'retired', 'self-employed', 'services', 'student', 'technician'],
     'marital': ['married', 'single', 'married', 'single', 'married', 'single', 'married', 'single', 'married', 'single'],
     'education': ['tertiary', 'secondary', 'tertiary', 'primary', 'tertiary', 'secondary', 'tertiary', 'primary', 'tertiary', 'secondary'],
